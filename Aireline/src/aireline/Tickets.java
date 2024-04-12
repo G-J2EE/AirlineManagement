@@ -4,6 +4,7 @@
  */
 package aireline;
 
+import flyhigh.Menu;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -222,6 +223,7 @@ public class Tickets extends javax.swing.JFrame {
         Gen.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Gen.setText("Genre");
 
+        PGen.setEditable(false);
         PGen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PGenActionPerformed(evt);
@@ -425,13 +427,14 @@ private void CountFlights()
      try {
           Con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/airlinedb","root","0000");
           St = Con.createStatement();
-          String Query = "select * from flighttbl";
+          String Query = "select * from flights";
           Rs = St.executeQuery(Query);
           while(Rs.next())
           {
-             String FiCode = String.valueOf(Rs.getString("FlCode"));
+             String FiCode = String.valueOf(Rs.getString("flightcode"));
              FlCode.addItem(FiCode);
           }
+          
      }
      catch ( Exception e ){
      }
@@ -467,7 +470,9 @@ private void GetPassengersData()
     }//GEN-LAST:event_button2ActionPerformed
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
-        // TODO add your handling code here:
+        Menu me = new Menu();
+        me.setVisible(true);
+        Tickets.super.dispose();
     }//GEN-LAST:event_button3ActionPerformed
 
     private void PassidMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassidMouseClicked
@@ -479,11 +484,11 @@ private void GetPassengersData()
     }//GEN-LAST:event_PassidActionPerformed
 
     private void FlCodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FlCodeMouseClicked
-        // TODO add your handling code here:
+     GetFlights();
     }//GEN-LAST:event_FlCodeMouseClicked
 
     private void FlCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FlCodeActionPerformed
-       GetFlights();
+      
     }//GEN-LAST:event_FlCodeActionPerformed
 
     private void button3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button3MouseClicked

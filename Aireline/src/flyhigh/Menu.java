@@ -1,5 +1,6 @@
 package flyhigh;
-
+import aireline.Tickets;
+import aireline.CancelTicket;
 public class Menu extends javax.swing.JFrame {
 
     public Menu() {
@@ -13,6 +14,8 @@ public class Menu extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         vols = new javax.swing.JButton();
         manfli = new javax.swing.JButton();
+        Billets = new javax.swing.JButton();
+        CancelB = new javax.swing.JButton();
         dec = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -41,24 +44,45 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        Billets.setText("Billets");
+        Billets.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BilletsActionPerformed(evt);
+            }
+        });
+
+        CancelB.setText("Cancel billets");
+        CancelB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(vols, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manfli, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(CancelB, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Billets, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(vols, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(manfli, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(manfli, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(vols, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(manfli, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(vols, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Billets, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CancelB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -146,6 +170,18 @@ public class Menu extends javax.swing.JFrame {
         fl.setVisible(true);
     }//GEN-LAST:event_volsActionPerformed
 
+    private void BilletsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BilletsActionPerformed
+      Menu.super.dispose();
+        Tickets tk = new Tickets();
+        tk.setVisible(true);
+    }//GEN-LAST:event_BilletsActionPerformed
+
+    private void CancelBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBActionPerformed
+        Menu.super.dispose();
+        CancelTicket Ctk = new CancelTicket();
+        Ctk.setVisible(true);
+    }//GEN-LAST:event_CancelBActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -156,6 +192,8 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Billets;
+    private javax.swing.JButton CancelB;
     private javax.swing.JButton dec;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

@@ -5,6 +5,8 @@
 package aireline;
 
 
+
+import flyhigh.Menu;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -380,7 +382,9 @@ private void Cancel(){
     }//GEN-LAST:event_ResetbtnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        // TODO add your handling code here:
+        Menu me = new Menu();
+        me.setVisible(true);
+        CancelTicket.super.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 
     private void BackbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackbtnMouseClicked
@@ -391,7 +395,7 @@ private void Cancel(){
 
     private void ResetbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetbtnMouseClicked
        FcodeTb.setText("");
-       TIdCb.setSelectedIndex(-1);
+
        
     }//GEN-LAST:event_ResetbtnMouseClicked
 

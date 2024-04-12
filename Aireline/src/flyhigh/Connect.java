@@ -27,7 +27,7 @@ public class Connect {
             try {
                 // Establish the connection.
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_user_database","root","");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airlinedb","root","0000");
                 System.out.print("connection done");
             }
 
