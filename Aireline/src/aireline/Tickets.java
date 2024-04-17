@@ -4,7 +4,6 @@
  */
 package aireline;
 
-import flyhigh.Menu;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
