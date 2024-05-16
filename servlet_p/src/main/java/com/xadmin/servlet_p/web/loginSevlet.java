@@ -20,7 +20,7 @@ public class loginSevlet extends HttpServlet {
     // JDBC URL, username, and password of MySQL server
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/airlinedb";
     private static final String JDBC_USERNAME = "root";
-    private static final String JDBC_PASSWORD = "0000";
+    private static final String JDBC_PASSWORD = "";
     
     // SQL query to check if email and password match
     private static final String SQL_CHECK_LOGIN = "SELECT * FROM user WHERE email = ? AND password = ?";

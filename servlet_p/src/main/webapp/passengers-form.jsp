@@ -24,7 +24,7 @@
                         <a class="nav-link" href="<%=request.getContextPath()%>/passengers">Passengers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<%=request.getContextPath()%>/Flight">Flights</a>
+                        <a class="nav-link" href="<%=request.getContextPath()%>/flights">Flights</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<%=request.getContextPath()%>/Tickets">Tickets</a>
@@ -42,13 +42,15 @@
 	<div class="container col-md-5">
 		<div class="card">
 			<div class="card-body">
-				<c:if test="${passenger != null}"> 
-					<form action="UpdateServlet" method="post">
-				</c:if>
-				<c:if test="${passenger == null}"> 
-					<form action="InserServlet" method="post">
-				</c:if>
-
+			
+              <c:choose>
+                <c:when test="${passenger != null}">
+                    <form action="<%=request.getContextPath()%>/UpdateServlet" method="post">
+                </c:when>
+                <c:otherwise>
+                    <form action="<%=request.getContextPath()%>/InserServlet" method="post">
+                </c:otherwise>
+            </c:choose>
 				<caption>
 					<h2>
 						<c:if test="${passenger != null}"> 
@@ -93,7 +95,11 @@
 						value="<c:out value='${passenger.PAdd}' />" class="form-control"
 						name="PAdd">
 				</fieldset>
-
+               <fieldset class="form-group">
+					<label>Passenger phone</label> <input type="text" 
+						pvalue="<c:out value='${passenger.pphone}' />" class="form-control"
+						name="pphone">
+				</fieldset>
 				
 
 				<button type="submit" class="btn btn-success">Save</button>

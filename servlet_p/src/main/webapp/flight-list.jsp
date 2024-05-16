@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +38,7 @@
         }
     </style>
 </head>
+
 <body>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -69,52 +71,50 @@
 
 <div class="row">
     <div class="container">
-        <h3 class="text-center">List of Passengers</h3>
+        <h3 class="text-center">List of Flights</h3>
         <hr>
         <div class="container text-left">
-            <a href="passengers-form.jsp" class="btn btn-success">Add New Passenger</a>
+            <a href="flight-form.jsp" class="btn btn-success">Add New flight</a>
         </div>
         <br>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Nationality</th>
-                    <th>Gender</th>
-                    <th>Passport Number</th>
-                    <th>Address</th>
-                    <th>Phone</th>
+                    <th>Flight code</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Take off date</th>
+                    <th>nb Seats</th>
+                    <th>Amount</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             
-                <c:forEach var="passenger" items="${listPassengers}">
+                <c:forEach var="flight" items="${listFlights}">
                     <tr>
-                        <td><c:out value="${passenger.PI}" /></td>
-                        <td><c:out value="${passenger.PName}" /></td>
-                        <td><c:out value="${passenger.PNat}" /></td>
-                        <td><c:out value="${passenger.PGen}" /></td>
-                        <td><c:out value="${passenger.PPass}" /></td>
-                        <td><c:out value="${passenger.PAdd}" /></td>
-                        <td><c:out value="${passenger.pphone}" /></td>
-                        <td>
-                            <c:set var="passengerId" value="${passenger.PI}" />
-                            <form action="EditServlet" method="GET">
-                                <input type="hidden" name="PI" value="${passengerId}" />
+                        <td><c:out value="${flight.flightcode}" /></td>
+                        <td><c:out value="${flight.source_l}" /></td>
+                        <td><c:out value="${flight.destination_l}" /></td>
+                        <td><c:out value="${flight.takeoffd}" /></td>
+                        <td><c:out value="${flight.nbseats}" /></td>
+                        <td><c:out value="${flight.amount}" /></td>
+                       <td>
+                            <c:set var="flightcode" value="${flight.flightcode}" />
+                            <form action="EditFlight" method="get">
+                                <input type="hidden" name="flightcode" value="${flightcode}" />
                                 <button type="submit" class="btn btn-primary">Edit</button>
                             </form>
                          </td>
                          <td>
                          
-                            <c:set var="passengerId" value="${passenger.PI}" />
-                            <form action="DeleteServlet" method="GET">
-                                <input type="hidden" name="PI" value="${passengerId}" />
+                            <c:set var="flightcode" value="${flight.flightcode}" />
+                            <form action="DeleteFlight" method="get">
+                                <input type="hidden" name="flightcode" value="${flightcode}" />
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                            </td>
-                        </td>
+                        
                     </tr>
                 </c:forEach>
             
