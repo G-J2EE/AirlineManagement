@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.xadmin.servlet_p.bean.passengers;
 import com.xadmin.servlet_p.dao.passengersDAO;
 
-@WebServlet("/")
+@WebServlet("/passengers")
 public class passengersServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private passengersDAO passengersDAO;
@@ -69,9 +69,7 @@ public class passengersServlet extends HttpServlet {
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id")); // Assurez-vous que le paramètre id n'est pas null
-
-        // Récupérer le passager correspondant à l'ID de la base de données
+        int id = Integer.parseInt(request.getParameter("PI")); 
         passengers existingPassenger = passengersDAO.selectPassenger(id);
 
         // Envoyer le passager récupéré à la page JSP pour affichage dans le formulaire d'édition
@@ -131,7 +129,7 @@ public class passengersServlet extends HttpServlet {
         passengers passenger = new passengers(PName, PNat, PGen, PPass, PAdd, Pphone);
         passenger.setPI(id);
         passengersDAO.updatePassenger(passenger);
-        response.sendRedirect("list");
+        response.sendRedirect("passengers");
 }
 
     private void deletePassenger(HttpServletRequest request, HttpServletResponse response)

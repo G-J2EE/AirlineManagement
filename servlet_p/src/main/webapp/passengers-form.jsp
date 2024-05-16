@@ -12,27 +12,41 @@
 <body>
 
 	<header>
-		<nav class="navbar navbar-expand-md navbar-dark"
-			style="background-color: blue">
-			<div>
-				<a href="https://www.xadmin.net" class="navbar-brand"> User Management Application </a>
-			</div>
-
-			<ul class="navbar-nav">
-				<li><a href="<%=request.getContextPath()%>/list"
-					class="nav-link">Passengers</a></li> 
-			</ul>
-		</nav>
-	</header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="<%=request.getContextPath()%>/Homme.jsp">Airline Management</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%=request.getContextPath()%>/passengers">Passengers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%=request.getContextPath()%>/Flight">Flights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%=request.getContextPath()%>/Tickets">Tickets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%=request.getContextPath()%>/login.jsp">logout</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 	<br>
 	<div class="container col-md-5">
 		<div class="card">
 			<div class="card-body">
 				<c:if test="${passenger != null}"> 
-					<form action="update" method="post">
+					<form action="UpdateServlet" method="post">
 				</c:if>
 				<c:if test="${passenger == null}"> 
-					<form action="insert" method="post">
+					<form action="InserServlet" method="post">
 				</c:if>
 
 				<caption>
