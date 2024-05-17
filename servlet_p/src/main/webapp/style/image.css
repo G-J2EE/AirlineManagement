@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.back-img {
+    background-image: url('image/plane.jpg'); /* Assuming your image is located at 'image/plane.jpg' */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* Style for the 'bq' div */
+.bq {
+    /* Add styles for your 'bq' div here */
+}
